@@ -9,13 +9,50 @@ import java.util.Optional;
  * @author Jarne Thys
  */
 public class Algoritme {
-    public Optional<List<Steen>> maakKetting(ArrayList<Steen> todo) {
-        // conversie tussen ArrayList en array voor als je dat nodig zou hebben
-        Steen[] todoArray = new Steen[todo.size()];
-        for (int i=0; i<todo.size(); i++) {
-            todoArray[i] = todo.get(i);
+    private final List<ArrayList<Steen>> oplossingen = new ArrayList<>();
+
+    public Optional<List<ArrayList<Steen>>> maakKetting(ArrayList<Steen> todo) {
+        oplossingen.clear();
+        zoekAlleOplossingen(todo, new ArrayList<>(), 0);
+        return Optional.of(oplossingen);
+    }
+
+    private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int gelegdeStenen) {
+        if (gelegdeStenen == stenen.size()) {
+            if (!oplossingen.contains(huidige)) {
+                oplossingen.add(new ArrayList<>(huidige));
+            }
+            return;
         }
-        return Optional.of(todo);
+        for (int i = gelegdeStenen; i < stenen.size(); ++i) {
+            var steen = stenen.get(i);
+            probeerSteen(stenen, huidige, gelegdeStenen, steen);
+            steen.flip();
+            probeerSteen(stenen, huidige, gelegdeStenen, steen);
+        }
+    }
+
+    private void probeerSteen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int gelegdeStenen, Steen steen) {
+        if (kanLinks(huidige, steen)) {
+            huidige.add(0, new Steen(steen.getOgen1(), steen.getOgen2(), steen.getKleur()));
+            zoekAlleOplossingen(stenen, huidige, gelegdeStenen + 1);
+            huidige.remove(0);
+        }
+        if (kanRechts(huidige, steen)) {
+            huidige.add(new Steen(steen.getOgen1(), steen.getOgen2(), steen.getKleur()));
+            zoekAlleOplossingen(stenen, huidige, gelegdeStenen + 1);
+            huidige.remove(huidige.size() - 1);
+        }
+    }
+
+    private boolean kanLinks(ArrayList<Steen> oplossing, Steen steen) {
+        if (oplossing.isEmpty()) return true;
+        return ((oplossing.get(0).getOgen1() == steen.getOgen2()) && (oplossing.get(0).getKleur() != steen.getKleur()));
+    }
+
+    private boolean kanRechts(ArrayList<Steen> oplossing, Steen steen) {
+        if (oplossing.isEmpty()) return true;
+        return ((oplossing.get(oplossing.size() - 1).getOgen2() == steen.getOgen1()) && (oplossing.get(oplossing.size() - 1).getKleur() != steen.getKleur()));
     }
 }
 

@@ -23,12 +23,18 @@ public class Main {
         if (stenen.size() > 1) stenen.get(1).flip();
 
         Algoritme rekenaar = new Algoritme();
-        Optional<List<Steen>> oplossing = rekenaar.maakKetting(stenen);
-        if (oplossing.isEmpty()) {
+        Optional<List<ArrayList<Steen>>> oplossingen = rekenaar.maakKetting(stenen);
+        if (oplossingen.isEmpty()) {
+            System.out.println("geen oplossing");
+        }
+        else if (oplossingen.get().size() == 0) {
             System.out.println("geen oplossing");
         }
         else {
-            System.out.println(oplossing.get());
+            var alle = oplossingen.get();
+            for (var opl : alle) {
+                System.out.println(opl);
+            }
         }
     }
 
