@@ -35,7 +35,7 @@ public class Main {
             for (var opl : alle) {
                 System.out.println(opl);
             }
-            System.out.println(String.valueOf(alle.size()) + " oplossingen gevonden");
+            System.out.println(String.valueOf(alle.size()) + " oplossingen gevonden met " + alle.get(0).size() + " stenen");
         }
     }
 

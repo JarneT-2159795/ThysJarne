@@ -10,40 +10,46 @@ import java.util.Optional;
  */
 public class Algoritme {
     private final List<ArrayList<Steen>> oplossingen = new ArrayList<>();
+    private int lengte;
 
     public Optional<List<ArrayList<Steen>>> maakKetting(ArrayList<Steen> todo) {
         oplossingen.clear();
-        zoekAlleOplossingen(todo, new ArrayList<>(), 0);
+        lengte = todo.size();
+        while (oplossingen.size() == 0) {
+            zoekAlleOplossingen(todo, new ArrayList<>());
+            --lengte;
+        }
         return Optional.of(oplossingen);
     }
 
-    private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int gelegdeStenen) {
-        if (gelegdeStenen == stenen.size()) {
+    private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige) {
+        if (huidige.size() == lengte) {
             if (!oplossingen.contains(huidige)) {
-                System.out.println("Oplossing " + oplossingen.size() + " gevonden");
+                System.out.println("Oplossing " + oplossingen.size() + " gevonden met " + huidige.size() + " stenen");
                 oplossingen.add(new ArrayList<>(huidige));
             }
             return;
         }
-        for (int i = gelegdeStenen; i < stenen.size(); ++i) {
-            var steen = stenen.get(i);
-            probeerSteen(stenen, huidige, gelegdeStenen, steen);
-            steen.flip();
-            probeerSteen(stenen, huidige, gelegdeStenen, steen);
+        for (int i = 0; i < stenen.size(); ++i) {
+            probeerSteen(stenen, huidige, i);
+            stenen.get(i).flip();
+            probeerSteen(stenen, huidige, i);
         }
     }
 
-    private void probeerSteen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int gelegdeStenen, Steen steen) {
+    private void probeerSteen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int huidigeSteen) {
+        var steen = new Steen(stenen.remove(huidigeSteen));
         if (kanLinks(huidige, steen)) {
-            huidige.add(0, new Steen(steen.getOgen1(), steen.getOgen2(), steen.getKleur()));
-            zoekAlleOplossingen(stenen, huidige, gelegdeStenen + 1);
+            huidige.add(0, new Steen(steen));
+            zoekAlleOplossingen(stenen, new ArrayList<>(huidige));
             huidige.remove(0);
         }
         if (kanRechts(huidige, steen)) {
-            huidige.add(new Steen(steen.getOgen1(), steen.getOgen2(), steen.getKleur()));
-            zoekAlleOplossingen(stenen, huidige, gelegdeStenen + 1);
+            huidige.add(new Steen(steen));
+            zoekAlleOplossingen(stenen, new ArrayList<>(huidige));
             huidige.remove(huidige.size() - 1);
         }
+        stenen.add(huidigeSteen, steen);
     }
 
     private boolean kanLinks(ArrayList<Steen> oplossing, Steen steen) {

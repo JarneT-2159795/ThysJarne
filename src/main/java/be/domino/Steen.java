@@ -19,6 +19,13 @@ public class Steen {
         flipped = false;
     }
 
+    public Steen(Steen andere) {
+        this.ogen1 = andere.getOgen1();
+        this.ogen2 = andere.getOgen2();
+        this.kleur = andere.getKleur();
+        this.flipped = andere.isFlipped();
+    }
+
     public Steen(int ogen1, int ogen2, char kleur) {
         this.ogen1 = ogen1;
         this.ogen2 = ogen2;
