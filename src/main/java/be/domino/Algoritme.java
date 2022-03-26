@@ -20,6 +20,7 @@ public class Algoritme {
     private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige, int gelegdeStenen) {
         if (gelegdeStenen == stenen.size()) {
             if (!oplossingen.contains(huidige)) {
+                System.out.println("Oplossing " + oplossingen.size() + " gevonden");
                 oplossingen.add(new ArrayList<>(huidige));
             }
             return;

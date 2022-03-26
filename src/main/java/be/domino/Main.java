@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public class Main {
 
-    private static String defaultInput = "12R 23G 32R 21P";
+    private static final String defaultInput = "12R 23G 32R 21P";
 
     public static void main(String[] args) {
         String input;
@@ -35,13 +35,14 @@ public class Main {
             for (var opl : alle) {
                 System.out.println(opl);
             }
+            System.out.println(String.valueOf(alle.size()) + " oplossingen gevonden");
         }
     }
 
     public static String readFileAsString(String fileName)
     {
         try {
-            String data = "";
+            String data;
             data = new String(Files.readAllBytes(Paths.get(fileName)));
             return data;
         }
@@ -60,8 +61,8 @@ public class Main {
 
     public static Steen parseStone(String txt) {
         try {
-            int ogen1 = Integer.valueOf(txt.substring(0,1));
-            int ogen2 = Integer.valueOf(txt.substring(1,2));
+            int ogen1 = Integer.parseInt(txt.substring(0,1));
+            int ogen2 = Integer.parseInt(txt.substring(1,2));
             char kleur = txt.charAt(2);
             return new Steen(ogen1, ogen2, kleur);
         }
