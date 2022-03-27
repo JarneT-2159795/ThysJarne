@@ -39,7 +39,9 @@ public class Algoritme {
     private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige) {
         if (huidige.size() == lengte) {
             if (!oplossingen.contains(huidige)) {
-                oplossingen.add(new ArrayList<>(huidige));
+                if (kanRechts(huidige, huidige.get(0))) {
+                    oplossingen.add(new ArrayList<>(huidige));
+                }
             }
             return;
         }
