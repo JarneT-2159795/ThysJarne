@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public class Main {
 
-    private static final String defaultInput = "12R 23G 32R 21P";
+    private static final String defaultInput = "12R 23G";// 32R 21P";
 
     public static void main(String[] args) {
         String input;
@@ -25,10 +25,10 @@ public class Main {
         Algoritme rekenaar = new Algoritme();
         Optional<List<ArrayList<Steen>>> oplossingen = rekenaar.maakKetting(stenen);
         if (oplossingen.isEmpty()) {
-            System.out.println("geen oplossing");
+            System.out.println("Geen oplossing");
         }
         else if (oplossingen.get().size() == 0) {
-            System.out.println("geen oplossing");
+            System.out.println("Geen oplossing");
         }
         else {
             var alle = oplossingen.get();
@@ -36,6 +36,7 @@ public class Main {
                 System.out.println(opl);
             }
             System.out.println(String.valueOf(alle.size()) + " oplossingen gevonden met " + alle.get(0).size() + " stenen");
+            System.out.println(String.valueOf(rekenaar.dubbels + " dubbels gevonden"));
         }
     }
 

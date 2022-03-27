@@ -1,1 +1,2 @@
-java -Xss512m -jar taakBacktrackingGradle-1.0-SNAPSHOT.jar "stenen12.txt"
+time java -Xss512m -jar taakBacktrackingGradle-1.0-SNAPSHOT.jar "stenen12.txt"
+

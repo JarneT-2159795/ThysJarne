@@ -11,13 +11,27 @@ import java.util.Optional;
 public class Algoritme {
     private final List<ArrayList<Steen>> oplossingen = new ArrayList<>();
     private int lengte;
+    public int dubbels;
 
     public Optional<List<ArrayList<Steen>>> maakKetting(ArrayList<Steen> todo) {
         oplossingen.clear();
         lengte = todo.size();
         while (oplossingen.size() == 0) {
-            zoekAlleOplossingen(todo, new ArrayList<>());
+            dubbels = 0;
+            ArrayList<Steen> huidige = new ArrayList<>();
+            huidige.add(new Steen(todo.remove(0)));
+            zoekAlleOplossingen(todo, huidige);
             --lengte;
+        }
+        int size = oplossingen.size();
+        for (int i = 0; i < size; ++i) {
+            ArrayList<Steen> nieuw = new ArrayList<>();
+            for (int j = lengte; j >= 0; --j) {
+                var steen = new Steen(oplossingen.get(i).get(j));
+                steen.flip();
+                nieuw.add(steen);
+            }
+            oplossingen.add(new ArrayList<>(nieuw));
         }
         return Optional.of(oplossingen);
     }
@@ -25,8 +39,10 @@ public class Algoritme {
     private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige) {
         if (huidige.size() == lengte) {
             if (!oplossingen.contains(huidige)) {
-                System.out.println("Oplossing " + oplossingen.size() + " gevonden met " + huidige.size() + " stenen");
                 oplossingen.add(new ArrayList<>(huidige));
+                System.out.println("Oplossing " + oplossingen.size() + " gevonden met " + huidige.size() + " stenen");
+            } else {
+                ++dubbels;
             }
             return;
         }
@@ -44,7 +60,7 @@ public class Algoritme {
             zoekAlleOplossingen(stenen, new ArrayList<>(huidige));
             huidige.remove(0);
         }
-        if (kanRechts(huidige, steen)) {
+        if (kanRechts(huidige, steen) && huidige.size() > 0) {
             huidige.add(new Steen(steen));
             zoekAlleOplossingen(stenen, new ArrayList<>(huidige));
             huidige.remove(huidige.size() - 1);

@@ -7,4 +7,18 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1259" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/main/java/be/domino/Algoritme.java" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="208" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/main/java/be/domino/Main.java" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
 </project>
