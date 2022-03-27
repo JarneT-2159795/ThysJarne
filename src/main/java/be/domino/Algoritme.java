@@ -11,16 +11,16 @@ import java.util.Optional;
 public class Algoritme {
     private final List<ArrayList<Steen>> oplossingen = new ArrayList<>();
     private int lengte;
-    public int dubbels;
 
     public Optional<List<ArrayList<Steen>>> maakKetting(ArrayList<Steen> todo) {
         oplossingen.clear();
         lengte = todo.size();
         while (oplossingen.size() == 0) {
-            dubbels = 0;
             ArrayList<Steen> huidige = new ArrayList<>();
-            huidige.add(new Steen(todo.remove(0)));
+            var eerste = new Steen(todo.remove(0));
+            huidige.add(eerste);
             zoekAlleOplossingen(todo, huidige);
+            todo.add(0, eerste);
             --lengte;
         }
         int size = oplossingen.size();
@@ -40,9 +40,6 @@ public class Algoritme {
         if (huidige.size() == lengte) {
             if (!oplossingen.contains(huidige)) {
                 oplossingen.add(new ArrayList<>(huidige));
-                System.out.println("Oplossing " + oplossingen.size() + " gevonden met " + huidige.size() + " stenen");
-            } else {
-                ++dubbels;
             }
             return;
         }
