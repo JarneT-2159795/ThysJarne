@@ -16,11 +16,15 @@ public class Algoritme {
         oplossingen.clear();
         lengte = todo.size();
         while (oplossingen.size() == 0) {
-            ArrayList<Steen> huidige = new ArrayList<>();
-            var eerste = new Steen(todo.remove(0));
-            huidige.add(eerste);
-            zoekAlleOplossingen(todo, huidige);
-            todo.add(0, eerste);
+            for (int i = 0; i < todo.size(); ++i) {
+                ArrayList<Steen> huidige = new ArrayList<>();
+                var eerste = new Steen(todo.remove(i));
+                huidige.add(eerste);
+                zoekAlleOplossingen(todo, huidige);
+                var kopie = new Steen(eerste);
+                kopie.flip();
+                todo.add(i, kopie);
+            }
             --lengte;
         }
         int size = oplossingen.size();
@@ -39,7 +43,7 @@ public class Algoritme {
     private void zoekAlleOplossingen(ArrayList<Steen> stenen, ArrayList<Steen> huidige) {
         if (huidige.size() == lengte) {
             if (!oplossingen.contains(huidige)) {
-                if (kanRechts(huidige, huidige.get(0))) {
+                if (kanSluiten(huidige)) {
                     oplossingen.add(new ArrayList<>(huidige));
                 }
             }
@@ -75,6 +79,16 @@ public class Algoritme {
     private boolean kanRechts(ArrayList<Steen> oplossing, Steen steen) {
         if (oplossing.isEmpty()) return true;
         return ((oplossing.get(oplossing.size() - 1).getOgen2() == steen.getOgen1()) && (oplossing.get(oplossing.size() - 1).getKleur() != steen.getKleur()));
+    }
+
+    private boolean kanSluiten(ArrayList<Steen> oplossing) {
+        if (oplossing.size() <= 1) return true;
+        var eerste = oplossing.get(0);
+        var laatste = oplossing.get(oplossing.size() - 1);
+        if (eerste.getOgen1() != laatste.getOgen2()) {
+            return false;
+        }
+        return (eerste.getKleur() != laatste.getKleur());
     }
 }
 

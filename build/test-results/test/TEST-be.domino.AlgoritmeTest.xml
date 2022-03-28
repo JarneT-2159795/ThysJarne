@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="be.domino.AlgoritmeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-03-27T16:04:33" hostname="ubuntu-desktop" time="0.019">
+<testsuite name="be.domino.AlgoritmeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-03-28T10:14:06" hostname="ubuntu-desktop" time="0.023">
   <properties/>
-  <testcase name="kanLinks_steenKanLinksWantLeeg_true()" classname="be.domino.AlgoritmeTest" time="0.015"/>
+  <testcase name="kanSluiten_oplossingIsEnkeleSteen_true()" classname="be.domino.AlgoritmeTest" time="0.017"/>
+  <testcase name="kanLinks_steenKanLinksWantLeeg_true()" classname="be.domino.AlgoritmeTest" time="0.0"/>
   <testcase name="kanRechts_steenKanNietRechtsDoorKleur_false()" classname="be.domino.AlgoritmeTest" time="0.001"/>
   <testcase name="kanLinks_steenKanLinks_true()" classname="be.domino.AlgoritmeTest" time="0.0"/>
-  <testcase name="kanRechts_steenKanRechts_true()" classname="be.domino.AlgoritmeTest" time="0.0"/>
-  <testcase name="kanRechts_steenKanNietRechtsDoorOgen_false()" classname="be.domino.AlgoritmeTest" time="0.001"/>
+  <testcase name="kanSluiten_oplossingIsGeldig_true()" classname="be.domino.AlgoritmeTest" time="0.0"/>
+  <testcase name="kanRechts_steenKanRechts_true()" classname="be.domino.AlgoritmeTest" time="0.001"/>
+  <testcase name="kanRechts_steenKanNietRechtsDoorOgen_false()" classname="be.domino.AlgoritmeTest" time="0.0"/>
   <testcase name="kanLinks_steenKanNietLinksDoorKleur_false()" classname="be.domino.AlgoritmeTest" time="0.0"/>
-  <testcase name="kanLinks_steenKanNietLinksDoorOgen_false()" classname="be.domino.AlgoritmeTest" time="0.001"/>
+  <testcase name="kanSluiten_oplossingIsOngeldig_false()" classname="be.domino.AlgoritmeTest" time="0.0"/>
+  <testcase name="kanLinks_steenKanNietLinksDoorOgen_false()" classname="be.domino.AlgoritmeTest" time="0.0"/>
   <testcase name="kanRechts_steenKanRechtsWantLeeg_true()" classname="be.domino.AlgoritmeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
