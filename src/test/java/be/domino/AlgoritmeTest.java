@@ -197,4 +197,72 @@ public class AlgoritmeTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void kanSluiten_oplossingIsGeldig_true() {
+        // Private methode testen
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        Class[] args = new Class[1];
+        args[0] = ArrayList.class;
+        Method method;
+        try {
+            method = Algoritme.class.getDeclaredMethod("kanSluiten", args);
+            method.setAccessible(true);
+            ArrayList<Steen> stenen = new ArrayList<>();
+            stenen.add(new Steen(1, 2, 'R'));
+            stenen.add(new Steen(2, 1, 'Y'));
+            var algoritme = new Algoritme();
+
+            var result = (boolean)method.invoke(algoritme, stenen);
+            Assertions.assertTrue(result);
+        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void kanSluiten_oplossingIsEnkeleSteen_true() {
+        // Private methode testen
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        Class[] args = new Class[1];
+        args[0] = ArrayList.class;
+        Method method;
+        try {
+            method = Algoritme.class.getDeclaredMethod("kanSluiten", args);
+            method.setAccessible(true);
+            ArrayList<Steen> stenen = new ArrayList<>();
+            stenen.add(new Steen(1, 2, 'R'));
+            var algoritme = new Algoritme();
+
+            var result = (boolean)method.invoke(algoritme, stenen);
+            Assertions.assertTrue(result);
+        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void kanSluiten_oplossingIsOngeldig_false() {
+        // Private methode testen
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
+        Class[] args = new Class[1];
+        args[0] = ArrayList.class;
+        Method method;
+        try {
+            method = Algoritme.class.getDeclaredMethod("kanSluiten", args);
+            method.setAccessible(true);
+            ArrayList<Steen> stenen = new ArrayList<>();
+            stenen.add(new Steen(1, 2, 'R'));
+            stenen.add(new Steen(2, 3, 'Y'));
+            var algoritme = new Algoritme();
+
+            var result = (boolean)method.invoke(algoritme, stenen);
+            Assertions.assertFalse(result);
+        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }
