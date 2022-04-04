@@ -12,7 +12,6 @@ public class AlgoritmeTest {
     void kanLinks_steenKanLinks_true() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
         args[1] = Steen.class;
@@ -35,7 +34,6 @@ public class AlgoritmeTest {
     @Test
     void kanLinks_steenKanNietLinksDoorKleur_false() {
         // Private methode testen
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
@@ -60,7 +58,6 @@ public class AlgoritmeTest {
     void kanLinks_steenKanNietLinksDoorOgen_false() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
         args[1] = Steen.class;
@@ -84,7 +81,6 @@ public class AlgoritmeTest {
     void kanLinks_steenKanLinksWantLeeg_true() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
         args[1] = Steen.class;
@@ -106,7 +102,6 @@ public class AlgoritmeTest {
     @Test
     void kanRechts_steenKanRechts_true() {
         // Private methode testen
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
@@ -131,7 +126,6 @@ public class AlgoritmeTest {
     void kanRechts_steenKanNietRechtsDoorKleur_false() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
         args[1] = Steen.class;
@@ -154,7 +148,6 @@ public class AlgoritmeTest {
     @Test
     void kanRechts_steenKanNietRechtsDoorOgen_false() {
         // Private methode testen
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
@@ -179,7 +172,6 @@ public class AlgoritmeTest {
     void kanRechts_steenKanRechtsWantLeeg_true() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[2];
         args[0] = ArrayList.class;
         args[1] = Steen.class;
@@ -201,7 +193,6 @@ public class AlgoritmeTest {
     @Test
     void kanSluiten_oplossingIsGeldig_true() {
         // Private methode testen
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[1];
         args[0] = ArrayList.class;
@@ -225,7 +216,6 @@ public class AlgoritmeTest {
     void kanSluiten_oplossingIsEnkeleSteen_true() {
         // Private methode testen
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[1];
         args[0] = ArrayList.class;
         Method method;
@@ -246,7 +236,6 @@ public class AlgoritmeTest {
     @Test
     void kanSluiten_oplossingIsOngeldig_false() {
         // Private methode testen
-        // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         // https://www.javacodegeeks.com/2021/02/unit-testing-private-methods.html
         Class[] args = new Class[1];
         args[0] = ArrayList.class;
