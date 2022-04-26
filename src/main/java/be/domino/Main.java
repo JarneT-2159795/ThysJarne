@@ -9,6 +9,8 @@ import java.util.Optional;
 /**
  *
  * @author Jarne Thys
+ * 
+ * 10 uur aan gewerkt
  */
 public class Main {
 

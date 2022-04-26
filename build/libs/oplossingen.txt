@@ -1,0 +1,7 @@
+2 stenen: 8 oplossingen met 2 stenen
+3 stenen: 12 oplossingen met 3 stenen
+4 stenen: 8 oplossingen met 1 steen
+8 stenen: 20 oplossingen met 5 stenen
+9 stenen: 896 oplossingen met 8 stenen
+11 stenen: 13464 oplossingen met 11 stenen
+12 stenen: 14688 oplossingen met 12 stenen
